@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ArrowRight, Github, Linkedin, Mail, Code, Palette, Zap } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Code, Palette, Zap } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 
@@ -112,33 +112,24 @@ export default function Homepage() {
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800/50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Button
-            onClick={handleLogout}
-            variant="ghost"
-            className="text-gray-400 hover:text-gray-100 hover:bg-gray-800/50 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button>
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center">
           <div className="flex space-x-8">
             <button className="text-sm font-medium text-gray-100 border-b-2 border-purple-400 pb-1">Home</button>
             <button
-              onClick={() => router.push("/loading-character")}
+              onClick={() => router.push("/portal")}
               className="text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors"
             >
               Explore
             </button>
           </div>
-          <div className="w-20"></div>
         </div>
       </nav>
 
-      {/* Main Content - Completely reworked layout */}
-      <div className="min-h-screen bg-gray-950 pt-24 pb-16">
+      {/* Main Content - Moved down significantly */}
+      <div className="min-h-screen bg-gray-950 pt-32 pb-12">
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Spacer to ensure content is below header */}
-          <div className="h-16"></div>
+          {/* Large spacer to push content down */}
+          <div className="h-20"></div>
 
           {/* Logo Animation Section */}
           <div className="text-center mb-16">
@@ -297,7 +288,7 @@ export default function Homepage() {
             }`}
           >
             <Button
-              onClick={() => router.push("/loading-character")}
+              onClick={() => router.push("/portal")}
               className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-purple-500/25"
             >
               Explore My Work
