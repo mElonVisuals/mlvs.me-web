@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -36,9 +36,11 @@ export default function Component() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     if (invitationCode.toUpperCase() === "TEST") {
-      // Save the invitation code and authentication status
-      localStorage.setItem("mlvs_invitation_code", invitationCode.toUpperCase())
-      localStorage.setItem("mlvs_authenticated", "true")
+      // Save the invitation code and authentication status - only in browser
+      if (typeof window !== "undefined") {
+        localStorage.setItem("mlvs_invitation_code", invitationCode.toUpperCase())
+        localStorage.setItem("mlvs_authenticated", "true")
+      }
       setIsAuthenticated(true)
       setError("")
     } else {
@@ -71,6 +73,18 @@ export default function Component() {
   }
 
   const discordInviteUrl = "https://discord.gg/mlvs" // Replace with your actual Discord invite
+
+  useEffect(() => {
+    // Check authentication status only in browser
+    if (typeof window !== "undefined") {
+      const authenticated = localStorage.getItem("mlvs_authenticated")
+      const inviteCode = localStorage.getItem("mlvs_invitation_code")
+
+      if (authenticated === "true" && inviteCode) {
+        setIsAuthenticated(true)
+      }
+    }
+  }, [])
 
   if (isAuthenticated) {
     return <Homepage />

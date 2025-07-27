@@ -32,15 +32,18 @@ export default function MLVSPortalPage() {
 
   // Check if user has already been through the portal
   useEffect(() => {
-    const hasAccessedPortal = localStorage.getItem("mlvs_portal_accessed")
-    const invitationCode = localStorage.getItem("mlvs_invitation_code")
+    // Only access localStorage in the browser
+    if (typeof window !== "undefined") {
+      const hasAccessedPortal = localStorage.getItem("mlvs_portal_accessed")
+      const invitationCode = localStorage.getItem("mlvs_invitation_code")
 
-    if (hasAccessedPortal === "true" && invitationCode) {
-      // Skip loading animation and go straight to destinations
-      setIsLoading(false)
-      setProgress(100)
-      setCurrentPhase(phases.length - 1)
-      setShowDestinations(true)
+      if (hasAccessedPortal === "true" && invitationCode) {
+        // Skip loading animation and go straight to destinations
+        setIsLoading(false)
+        setProgress(100)
+        setCurrentPhase(phases.length - 1)
+        setShowDestinations(true)
+      }
     }
   }, [])
 
@@ -125,8 +128,10 @@ export default function MLVSPortalPage() {
           setTimeout(() => {
             setIsLoading(false)
             setShowDestinations(true)
-            // Save that user has accessed the portal
-            localStorage.setItem("mlvs_portal_accessed", "true")
+            // Save that user has accessed the portal - only in browser
+            if (typeof window !== "undefined") {
+              localStorage.setItem("mlvs_portal_accessed", "true")
+            }
           }, 500)
           return
         }
@@ -150,8 +155,10 @@ export default function MLVSPortalPage() {
     setProgress(0)
     setCurrentPhase(0)
     setShowDestinations(false)
-    // Clear the session flag to show loading again
-    localStorage.removeItem("mlvs_portal_accessed")
+    // Clear the session flag to show loading again - only in browser
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("mlvs_portal_accessed")
+    }
   }
 
   const toggleAnimation = () => {
@@ -159,6 +166,10 @@ export default function MLVSPortalPage() {
   }
 
   const navigateToDestination = (route: string) => {
+    // Save that user has accessed the portal - only in browser
+    if (typeof window !== "undefined") {
+      localStorage.setItem("mlvs_portal_accessed", "true")
+    }
     setTimeout(() => {
       router.push(route)
     }, 300)
@@ -566,7 +577,10 @@ export default function MLVSPortalPage() {
         <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-lg p-3 text-xs text-gray-300">
           <div className="flex items-center space-x-2">
             <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-            <span>Session: {localStorage.getItem("mlvs_invitation_code") || "Guest"}</span>
+            <span>
+              Session:{" "}
+              {typeof window !== "undefined" ? localStorage.getItem("mlvs_invitation_code") || "Guest" : "Guest"}
+            </span>
           </div>
         </div>
       </div>
