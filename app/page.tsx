@@ -72,7 +72,7 @@ export default function Component() {
     setRequestForm((prev) => ({ ...prev, [field]: value }))
   }
 
-  const discordInviteUrl = "https://discord.gg/mlvs" // Replace with your actual Discord invite
+  const discordInviteUrl = "https://discord.gg/w9QUjyHr3U" // Replace with your actual Discord invite
 
   useEffect(() => {
     // Check authentication status only in browser
@@ -207,7 +207,7 @@ export default function Component() {
                         <Input
                           id="email"
                           type="email"
-                          placeholder="your@email.com"
+                          placeholder="contact@mlvs.me"
                           value={requestForm.email}
                           onChange={(event) => handleInputChange("email", event.target.value)}
                           className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-500"
