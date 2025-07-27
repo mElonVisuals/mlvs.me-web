@@ -37,7 +37,7 @@ export default function Homepage() {
   const skills = [
     {
       icon: Code,
-      label: "Vibe Coding",
+      label: "Development",
       desc: "JavaScript, React, Learning",
       color: "from-purple-500 to-blue-500",
     },
@@ -230,9 +230,9 @@ export default function Homepage() {
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
             >
-              Vibe{" "}
+              Digital{" "}
               <span className="font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Coder
+                Creator
               </span>
             </h1>
 
@@ -258,9 +258,9 @@ export default function Homepage() {
             <div className="space-y-8">
               <div className="space-y-6 text-base md:text-lg text-gray-300 leading-relaxed px-4">
                 <p className="max-w-3xl mx-auto">
-                  I'm a passionate vibe coder with about a year of experience in development. I love experimenting with
-                  code, creating graphics for fun, and producing cinematic content for YouTube. My journey is all about
-                  learning, creating, and sharing the creative process.
+                  I'm a passionate digital creator with about a year of experience in development. I love experimenting
+                  with code, creating graphics for fun, and producing cinematic content for YouTube. My journey is all
+                  about learning, creating, and sharing the creative process.
                 </p>
               </div>
 

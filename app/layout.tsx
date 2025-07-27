@@ -1,16 +1,15 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MLVS - Vibe Coder & Digital Creator",
+  title: "MLVS - Digital Creator & Developer",
   description:
     "Creating digital experiences with code, graphics, and cinematics. Explore FiveM development, creative projects, and technical documentation.",
-  keywords: ["developer", "vibe coder", "FiveM", "web development", "graphics", "cinematics", "digital creator"],
+  keywords: ["developer", "FiveM", "web development", "graphics", "cinematics", "digital creator", "MLVS"],
   authors: [{ name: "MLVS" }],
   creator: "MLVS",
   publisher: "MLVS",
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://mlvs.me",
     siteName: "MLVS",
-    title: "MLVS - Vibe Coder & Digital Creator",
+    title: "MLVS - Digital Creator & Developer",
     description:
       "Creating digital experiences with code, graphics, and cinematics. Explore FiveM development, creative projects, and technical documentation.",
     images: [
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
         url: "https://mlvs.me/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MLVS - Vibe Coder & Digital Creator",
+        alt: "MLVS - Digital Creator & Developer",
         type: "image/png",
       },
     ],
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@mlvs",
     creator: "@mlvs",
-    title: "MLVS - Vibe Coder & Digital Creator",
+    title: "MLVS - Digital Creator & Developer",
     description:
       "Creating digital experiences with code, graphics, and cinematics. Explore FiveM development, creative projects, and technical documentation.",
     images: ["https://mlvs.me/og-image.png"],
@@ -74,6 +73,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     other: [{ rel: "mask-icon", url: "/safari-pinned-tab.png", color: "#8B5CF6" }],
   },
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -101,7 +101,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "MLVS",
-              jobTitle: "Vibe Coder & Digital Creator",
+              jobTitle: "Digital Creator & Developer",
               description: "Creating digital experiences with code, graphics, and cinematics",
               url: "https://mlvs.me",
               sameAs: [
