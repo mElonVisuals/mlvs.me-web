@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Github, Linkedin, Mail, Code, Palette, Zap } from "lucide-react"
+import { ArrowRight, Youtube, MessageCircle, Mail, Code, Palette, Zap } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 
@@ -56,9 +56,24 @@ export default function Homepage() {
   ]
 
   const socialLinks = [
-    { icon: Github, label: "GitHub", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
-    { icon: Mail, label: "Email", href: "#" },
+    {
+      icon: Youtube,
+      label: "YouTube",
+      href: "https://www.youtube.com/@melon.visuals",
+      color: "hover:bg-red-600 hover:border-red-500",
+    },
+    {
+      icon: MessageCircle,
+      label: "Discord",
+      href: "https://discord.gg/w9QUjyHr3U",
+      color: "hover:bg-indigo-600 hover:border-indigo-500",
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      href: "mailto:contact@mlvs.me",
+      color: "hover:bg-green-600 hover:border-green-500",
+    },
   ]
 
   return (
@@ -295,8 +310,9 @@ export default function Homepage() {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button
+              onClick={() => window.open("mailto:contact@mlvs.me", "_blank")}
               variant="outline"
-              className="border-2 border-gray-700 hover:border-purple-500 text-gray-300 hover:text-white px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 bg-transparent hover:bg-purple-600/10"
+              className="border-2 border-gray-700 hover:border-green-500 text-gray-300 hover:text-white px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 bg-transparent hover:bg-green-600/10"
             >
               <Mail className="w-5 h-5 mr-2" />
               Get In Touch
@@ -313,7 +329,9 @@ export default function Homepage() {
               <a
                 key={social.label}
                 href={social.href}
-                className="w-14 h-14 bg-gray-800 hover:bg-purple-600 text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-700 hover:border-purple-500"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-14 h-14 bg-gray-800 text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-700 ${social.color}`}
               >
                 <social.icon className="w-6 h-6" />
               </a>

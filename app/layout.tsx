@@ -104,11 +104,8 @@ export default function RootLayout({
               jobTitle: "Digital Creator & Developer",
               description: "Creating digital experiences with code, graphics, and cinematics",
               url: "https://mlvs.me",
-              sameAs: [
-                // Add your social media URLs here
-                // "https://github.com/yourusername",
-                // "https://linkedin.com/in/yourusername",
-              ],
+              email: "contact@mlvs.me",
+              sameAs: ["https://www.youtube.com/@melon.visuals", "https://discord.gg/w9QUjyHr3U"],
               knowsAbout: [
                 "Web Development",
                 "FiveM Development",
@@ -123,7 +120,7 @@ export default function RootLayout({
         <style>{`
 html {
   font-family: ${inter.style.fontFamily};
-  --font-sans: ${inter.style.fontFamily};
+  --font-sans: ${inter.variable};
 }
         `}</style>
       </head>
